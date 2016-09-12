@@ -1,0 +1,15 @@
+load_clojure_autodeps()
+
+java_binary(
+    name='main-bin',
+    deps=[':main_clj'],
+    main_class='ladder.main',
+    visibility=['PUBLIC'],
+)
+
+cljs_binary(
+  name='main-cljs-bin',
+  src=':web_main_cljs',
+  main='ladder.web-main',
+  resource_path='resources/static/js',
+)

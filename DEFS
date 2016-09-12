@@ -11,7 +11,7 @@ def load_clojure_autodeps(extra={}):
         for name, data in contents.iteritems():
             if name in extra.keys():
                 extra_data = extra.get(name)
-                for k,v in extra_data.iteritems():
+                for k, v in extra_data.iteritems():
                     if data.get(k) and isinstance(data[k], list):
                         data[k] += v
                     else:

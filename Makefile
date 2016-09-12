@@ -4,4 +4,4 @@ resolver:
 
 .PHONY: autodeps
 autodeps:
-	buck run tools/clojure:buck-autodeps
+	buck run tools/clojure:buck-autodeps examples
