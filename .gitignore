@@ -1,0 +1,21 @@
+/.idea
+pom.xml
+pom.xml.asc
+/.repl
+*.log
+
+# Mac
+*.DS_Store
+
+# Vim
+*.swp
+*.swo
+
+# Environment files
+.env
+
+ladder.iml
+
+# Buck
+buck-out
+.buckd
