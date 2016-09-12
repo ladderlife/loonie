@@ -59,14 +59,14 @@
   [jar-file file]
   (read-string (slurp (str "jar:" (.toURL jar-file) "!/" file))))
 
-;;TODO(eric) Extend this function to support implicit macro loading.
+;; TODO(eric): Extend this function to support implicit macro loading.
 (defn clj-deps-from-cljs-form
   [cljs-ns]
   (vec (concat
         (->> cljs-ns
              (filter #(and
                        (list? %)
-                       (contains? #{:require-macros,:use-macros} (first %))))
+                       (contains? #{:require-macros :use-macros} (first %))))
              (mapcat rest)
              (map #(if (coll? %)
                      (first %)
@@ -76,7 +76,7 @@
                        (list? %)
                        (= :require (first %))))
              (mapcat rest)
-             (filter #(and (coll? %) (some #{:refer-macros,:include-macros} %)))
+             (filter #(and (coll? %) (some #{:refer-macros :include-macros} %)))
              (map #(if (coll? %)
                      (first %)
                      %))))))
@@ -98,6 +98,7 @@
           :cljs-deps (when cljs-ns (parse/deps-from-ns-decl cljs-ns))
           :cljs-clj-deps (when cljs-ns
                            (cond-> (clj-deps-from-cljs-form cljs-ns)
+                             ;; Slight hack: cljc files compiled under cljs always depend on the clojure namespace of themselves
                              (string/ends-with? (.getName file) ".cljc")
                              (conj ns-name)))
           :file-clj (when-not (string/ends-with? (.getName file) ".cljs") file)
@@ -188,7 +189,7 @@
 (defn -main
   [& args]
   (let [{:keys [options arguments errors summary]} (parse-opts args cli-opts)
-        arguments (or (not-empty arguments) ["src/", "test/"])]
+        arguments (or (not-empty arguments) ["src/"])]
     (cond
       (:help options) (exit 0 summary)
       errors (exit 1 (error-msg errors)))

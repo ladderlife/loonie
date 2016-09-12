@@ -1,0 +1,13 @@
+prebuilt_jar(
+  name = 'fipp',
+  maven_coords = 'fipp:fipp:jar:0.6.3',
+  binary_jar = 'fipp-0.6.3.jar',
+  deps = [
+    '//third_party/clojure:clojure',
+    '//third_party/clojure:core.rrb-vector'
+  ],
+  visibility = [
+    '//third_party/mvxcvi:puget'
+  ],
+)
+

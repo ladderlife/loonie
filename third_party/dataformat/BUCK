@@ -1,0 +1,26 @@
+prebuilt_jar(
+  name = 'jackson-dataformat-cbor',
+  maven_coords = 'com.fasterxml.jackson.dataformat:jackson-dataformat-cbor:jar:2.7.5',
+  binary_jar = 'jackson-dataformat-cbor-2.7.5.jar',
+  source_jar = 'jackson-dataformat-cbor-2.7.5-sources.jar',
+  deps = [
+    '//third_party/core:jackson-core'
+  ],
+  visibility = [
+    '//third_party/cheshire:cheshire'
+  ],
+)
+
+prebuilt_jar(
+  name = 'jackson-dataformat-smile',
+  maven_coords = 'com.fasterxml.jackson.dataformat:jackson-dataformat-smile:jar:2.7.5',
+  binary_jar = 'jackson-dataformat-smile-2.7.5.jar',
+  source_jar = 'jackson-dataformat-smile-2.7.5-sources.jar',
+  deps = [
+    '//third_party/core:jackson-core'
+  ],
+  visibility = [
+    '//third_party/cheshire:cheshire'
+  ],
+)
+

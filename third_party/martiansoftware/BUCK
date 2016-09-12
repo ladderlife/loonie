@@ -1,0 +1,10 @@
+prebuilt_jar(
+  name = 'nailgun-server',
+  maven_coords = 'com.martiansoftware:nailgun-server:jar:0.9.1',
+  binary_jar = 'nailgun-server-0.9.1.jar',
+  source_jar = 'nailgun-server-0.9.1-sources.jar',
+  visibility = [
+    'PUBLIC'
+  ],
+)
+

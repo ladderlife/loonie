@@ -1,0 +1,24 @@
+prebuilt_jar(
+  name = 'closure-compiler-externs',
+  maven_coords = 'com.google.javascript:closure-compiler-externs:jar:v20160315',
+  binary_jar = 'closure-compiler-externs-v20160315.jar',
+)
+
+prebuilt_jar(
+  name = 'closure-compiler-unshaded',
+  maven_coords = 'com.google.javascript:closure-compiler-unshaded:jar:v20160315',
+  binary_jar = 'closure-compiler-unshaded-v20160315.jar',
+  source_jar = 'closure-compiler-unshaded-v20160315-sources.jar',
+  deps = [
+    ':closure-compiler-externs',
+    '//third_party/args4j:args4j',
+    '//third_party/findbugs:jsr305',
+    '//third_party/gson:gson',
+    '//third_party/guava:guava',
+    '//third_party/protobuf:protobuf-java'
+  ],
+  visibility = [
+    '//third_party/clojure:clojurescript'
+  ],
+)
+

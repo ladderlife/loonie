@@ -1,0 +1,15 @@
+prebuilt_jar(
+  name = 'cheshire',
+  maven_coords = 'cheshire:cheshire:jar:5.6.3',
+  binary_jar = 'cheshire-5.6.3.jar',
+  deps = [
+    '//third_party/core:jackson-core',
+    '//third_party/dataformat:jackson-dataformat-cbor',
+    '//third_party/dataformat:jackson-dataformat-smile',
+    '//third_party/tigris:tigris'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+

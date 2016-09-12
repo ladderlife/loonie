@@ -1,0 +1,10 @@
+prebuilt_jar(
+  name = 'rhino',
+  maven_coords = 'org.mozilla:rhino:jar:1.7R5',
+  binary_jar = 'rhino-1.7R5.jar',
+  source_jar = 'rhino-1.7R5-sources.jar',
+  visibility = [
+    '//third_party/clojure:clojurescript'
+  ],
+)
+

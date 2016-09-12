@@ -1,0 +1,12 @@
+prebuilt_jar(
+  name = 'jackson-core',
+  maven_coords = 'com.fasterxml.jackson.core:jackson-core:jar:2.7.5',
+  binary_jar = 'jackson-core-2.7.5.jar',
+  source_jar = 'jackson-core-2.7.5-sources.jar',
+  visibility = [
+    '//third_party/cheshire:cheshire',
+    '//third_party/dataformat:jackson-dataformat-cbor',
+    '//third_party/dataformat:jackson-dataformat-smile'
+  ],
+)
+

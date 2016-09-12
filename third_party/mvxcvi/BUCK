@@ -1,0 +1,23 @@
+prebuilt_jar(
+  name = 'arrangement',
+  maven_coords = 'mvxcvi:arrangement:jar:1.0.0',
+  binary_jar = 'arrangement-1.0.0.jar',
+  deps = [
+    '//third_party/clojure:clojure'
+  ],
+)
+
+prebuilt_jar(
+  name = 'puget',
+  maven_coords = 'mvxcvi:puget:jar:1.0.0',
+  binary_jar = 'puget-1.0.0.jar',
+  deps = [
+    ':arrangement',
+    '//third_party/clojure:clojure',
+    '//third_party/fipp:fipp'
+  ],
+  visibility = [
+    '//third_party/eftest:eftest'
+  ],
+)
+

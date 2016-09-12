@@ -1,0 +1,120 @@
+prebuilt_jar(
+  name = 'clojure',
+  maven_coords = 'org.clojure:clojure:jar:1.8.0',
+  binary_jar = 'clojure-1.8.0.jar',
+  source_jar = 'clojure-1.8.0-sources.jar',
+  visibility = [
+    'PUBLIC'
+  ],
+)
+
+prebuilt_jar(
+  name = 'clojurescript',
+  maven_coords = 'org.clojure:clojurescript:jar:1.9.229',
+  binary_jar = 'clojurescript-1.9.229.jar',
+  source_jar = 'clojurescript-1.9.229-sources.jar',
+  deps = [
+    ':clojure',
+    ':data.json',
+    ':google-closure-library',
+    ':tools.reader',
+    '//third_party/javascript:closure-compiler-unshaded',
+    '//third_party/mozilla:rhino'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+
+prebuilt_jar(
+  name = 'core.rrb-vector',
+  maven_coords = 'org.clojure:core.rrb-vector:jar:0.0.11',
+  binary_jar = 'core.rrb-vector-0.0.11.jar',
+  source_jar = 'core.rrb-vector-0.0.11-sources.jar',
+  deps = [
+    ':clojure'
+  ],
+  visibility = [
+    '//third_party/fipp:fipp'
+  ],
+)
+
+prebuilt_jar(
+  name = 'data.json',
+  maven_coords = 'org.clojure:data.json:jar:0.2.6',
+  binary_jar = 'data.json-0.2.6.jar',
+  source_jar = 'data.json-0.2.6-sources.jar',
+  deps = [
+    ':clojure'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+
+prebuilt_jar(
+  name = 'google-closure-library',
+  maven_coords = 'org.clojure:google-closure-library:jar:0.0-20160609-f42b4a24',
+  binary_jar = 'google-closure-library-0.0-20160609-f42b4a24.jar',
+  source_jar = 'google-closure-library-0.0-20160609-f42b4a24-sources.jar',
+  deps = [
+    ':google-closure-library-third-party'
+  ],
+)
+
+prebuilt_jar(
+  name = 'google-closure-library-third-party',
+  maven_coords = 'org.clojure:google-closure-library-third-party:jar:0.0-20160609-f42b4a24',
+  binary_jar = 'google-closure-library-third-party-0.0-20160609-f42b4a24.jar',
+  source_jar = 'google-closure-library-third-party-0.0-20160609-f42b4a24-sources.jar',
+)
+
+prebuilt_jar(
+  name = 'java.classpath',
+  maven_coords = 'org.clojure:java.classpath:jar:0.2.3',
+  binary_jar = 'java.classpath-0.2.3.jar',
+  source_jar = 'java.classpath-0.2.3-sources.jar',
+  deps = [
+    ':clojure'
+  ],
+)
+
+prebuilt_jar(
+  name = 'tools.cli',
+  maven_coords = 'org.clojure:tools.cli:jar:0.3.5',
+  binary_jar = 'tools.cli-0.3.5.jar',
+  source_jar = 'tools.cli-0.3.5-sources.jar',
+  deps = [
+    ':clojure'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+
+prebuilt_jar(
+  name = 'tools.namespace',
+  maven_coords = 'org.clojure:tools.namespace:jar:0.3.0-alpha3',
+  binary_jar = 'tools.namespace-0.3.0-alpha3.jar',
+  source_jar = 'tools.namespace-0.3.0-alpha3-sources.jar',
+  deps = [
+    ':clojure',
+    ':java.classpath',
+    ':tools.reader'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+
+prebuilt_jar(
+  name = 'tools.reader',
+  maven_coords = 'org.clojure:tools.reader:jar:1.0.0-beta3',
+  binary_jar = 'tools.reader-1.0.0-beta3.jar',
+  source_jar = 'tools.reader-1.0.0-beta3-sources.jar',
+  deps = [
+    ':clojure',
+    ':clojurescript'
+  ],
+)
+

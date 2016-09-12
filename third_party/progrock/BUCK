@@ -1,0 +1,12 @@
+prebuilt_jar(
+  name = 'progrock',
+  maven_coords = 'progrock:progrock:jar:0.1.1',
+  binary_jar = 'progrock-0.1.1.jar',
+  deps = [
+    '//third_party/clojure:clojure'
+  ],
+  visibility = [
+    '//third_party/eftest:eftest'
+  ],
+)
+

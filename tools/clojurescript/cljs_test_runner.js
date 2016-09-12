@@ -1,3 +1,6 @@
+// This is a version copied/modified from the doo runner:
+// https://github.com/bensu/doo/blob/master/library/resources/runners/headless.js
+
 var p = require('webpage').create();
 var fs = require('fs');
 var sys = require('system');

@@ -17,7 +17,6 @@ export_file(
     visibility=['PUBLIC']
 )
 
-
 if sys.platform.lower().startswith('linux'):
     phantom_url = 'https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2'
     extract_cmd = 'tar -jxvf archive'

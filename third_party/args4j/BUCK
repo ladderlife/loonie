@@ -1,0 +1,10 @@
+prebuilt_jar(
+  name = 'args4j',
+  maven_coords = 'args4j:args4j:jar:2.0.26',
+  binary_jar = 'args4j-2.0.26.jar',
+  source_jar = 'args4j-2.0.26-sources.jar',
+  visibility = [
+    '//third_party/javascript:closure-compiler-unshaded'
+  ],
+)
+

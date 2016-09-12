@@ -1,0 +1,16 @@
+prebuilt_jar(
+  name = 'eftest',
+  maven_coords = 'eftest:eftest:jar:0.1.1',
+  binary_jar = 'eftest-0.1.1.jar',
+  deps = [
+    '//third_party/aviso:pretty',
+    '//third_party/clojure:clojure',
+    '//third_party/clojure:tools.namespace',
+    '//third_party/mvxcvi:puget',
+    '//third_party/progrock:progrock'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+

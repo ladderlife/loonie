@@ -1,0 +1,10 @@
+prebuilt_jar(
+  name = 'protobuf-java',
+  maven_coords = 'com.google.protobuf:protobuf-java:jar:2.5.0',
+  binary_jar = 'protobuf-java-2.5.0.jar',
+  source_jar = 'protobuf-java-2.5.0-sources.jar',
+  visibility = [
+    '//third_party/javascript:closure-compiler-unshaded'
+  ],
+)
+

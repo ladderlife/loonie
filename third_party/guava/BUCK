@@ -1,0 +1,13 @@
+prebuilt_jar(
+  name = 'guava',
+  maven_coords = 'com.google.guava:guava:jar:19.0',
+  binary_jar = 'guava-19.0.jar',
+  source_jar = 'guava-19.0-sources.jar',
+  deps = [
+    '//third_party/findbugs:jsr305'
+  ],
+  visibility = [
+    '//third_party/javascript:closure-compiler-unshaded'
+  ],
+)
+

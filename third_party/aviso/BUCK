@@ -1,0 +1,12 @@
+prebuilt_jar(
+  name = 'pretty',
+  maven_coords = 'io.aviso:pretty:jar:0.1.24',
+  binary_jar = 'pretty-0.1.24.jar',
+  deps = [
+    '//third_party/clojure:clojure'
+  ],
+  visibility = [
+    '//third_party/eftest:eftest'
+  ],
+)
+
