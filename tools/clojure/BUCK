@@ -1,0 +1,88 @@
+include_defs('//tools/clojure/clojure_rules.py')
+
+export_file(name='compile_clj.clj', visibility=['PUBLIC'])
+
+clojure_library(
+    name='test-runner',
+    srcs=['test_runner.clj'],
+    deps=[
+        '//third_party/bultitude:bultitude',
+        '//third_party/eftest:eftest',
+    ],
+    needs_compile=True,
+    visibility=['PUBLIC'],
+)
+
+clojure_library(
+    name='buck-autodeps-lib',
+    srcs=['buck_autodeps.clj'],
+    deps=[
+        '//third_party/clojure:tools.namespace',
+        '//third_party/clojure:tools.cli',
+        '//third_party/cheshire:cheshire',
+    ],
+    needs_compile=True,
+    visibility=['PUBLIC'],
+)
+
+java_binary(
+    name='buck-autodeps',
+    main_class='BuckAutodeps',
+    deps=[
+        ':buck-autodeps-lib',
+    ],
+)
+
+# Persistent clojure runner (to lower startup time)
+
+clojure_library(
+    name='persistent-clj-lib',
+    srcs=['persistent_clj.clj'],
+    use_worker=False,
+    needs_compile=True,
+    deps=[
+        '//third_party/clojure:clojurescript',
+        '//third_party/clojure:tools.reader',
+        '//third_party/clojure:data.json',
+    ],
+    visibility=['PUBLIC']
+)
+
+java_binary(
+    name='persistent-clj',
+    main_class='PersistentClj',
+    deps=[
+        ':persistent-clj-lib',
+    ],
+)
+
+worker_tool(
+    name='persistent-clj-worker',
+    exe=':persistent-clj',
+    visibility=['PUBLIC']
+)
+
+worker_tool(
+    name='persistent-clj-tainted-worker',
+    exe=':persistent-clj',
+    env={'NO_UNLOAD': '1'},
+    visibility=['PUBLIC']
+)
+
+java_binary(
+    name='persistent-clj-server',
+    main_class='com.martiansoftware.nailgun.NGServer',
+    deps=[
+        ':persistent-clj-lib',
+        '//third_party/martiansoftware:nailgun-server',
+    ],
+    visibility=['PUBLIC']
+)
+
+genrule(
+    name='java-runner',
+    out='java-runner.sh',
+    cmd="""echo 'java "$@"' > $OUT && chmod +x $OUT""",
+    executable=True,
+    visibility=['PUBLIC'],
+)

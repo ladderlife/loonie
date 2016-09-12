@@ -1,0 +1,37 @@
+import sys
+
+# TODO(mikekap): Turn compile_cljs into a clojure_library/java_binary.
+export_file(name='compile_cljs.clj', visibility=['PUBLIC'])
+
+java_library(
+    name='compile_cljs_deps',
+    deps=[
+        '//third_party/clojure:clojure',
+        '//third_party/clojure:clojurescript',
+    ],
+    visibility=['PUBLIC'],
+)
+
+export_file(
+    name = 'cljs_test_runner.js',
+    visibility=['PUBLIC']
+)
+
+
+if sys.platform.lower().startswith('linux'):
+    phantom_url = 'https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-linux-x86_64.tar.bz2'
+    extract_cmd = 'tar -jxvf archive'
+else:
+    phantom_url = 'https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-macosx.zip'
+    extract_cmd = 'python -m zipfile -e archive $TMP'
+
+genrule(
+    name='phantomjs',
+    out='phantomjs',
+    executable=True,
+    cmd='cd $TMP && python -c "import urllib; urllib.urlretrieve(' + repr(phantom_url) + ", '$TMP/archive')\" && " +
+        extract_cmd + ' && mv phantomjs-*/bin/phantomjs $OUT && chmod +x $OUT',
+    visibility = [
+        'PUBLIC'
+    ]
+)

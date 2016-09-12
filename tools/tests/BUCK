@@ -1,0 +1,15 @@
+python_library(
+    name='buck_to_junit_lib',
+    base_module='',
+    srcs=['buck_to_junit.py'],
+    resources=['buckToJUnit.xsl'],
+)
+
+python_binary(
+    name='buck_to_junit',
+    main_module='buck_to_junit',
+    deps=[
+        ':buck_to_junit_lib',
+    ],
+    visibility=['PUBLIC'],
+)
