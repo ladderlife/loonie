@@ -106,4 +106,4 @@ You are unfortunately correct. We don't use the buck build during development in
 A Loonie is slang for a Canadian Dollar. Which is like a weird Buck.
 
 #### I can't find my answer in this list ####
-[File an issue](https://github.com/ladderlife/loonie/issues/new).
+[File an issue](https://github.com/ladderlife/loonie/issues/new). You can also find help in the #loonie channel on [Clojurians](http://clojurians.net/).
