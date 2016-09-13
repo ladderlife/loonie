@@ -102,5 +102,8 @@ Yes! If you're using autodeps, you're using `clojure_library` rules under the co
 #### This is painfully slow during development! ####
 You are unfortunately correct. We don't use the buck build during development internally and have a small hack to start a nREPL with the classpath set correctly.
 
+#### Why is it called Loonie? ####
+A Loonie is slang for a Canadian Dollar. Which is like a weird Buck.
+
 #### I can't find my answer in this list ####
 [File an issue](https://github.com/ladderlife/loonie/issues/new).
