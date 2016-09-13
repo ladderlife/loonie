@@ -7,6 +7,8 @@ sudo: false
 
 addons:
   apt:
+    sources:
+      - deadsnakes
     packages:
       - python
 
@@ -14,6 +16,7 @@ before_install:
   # Limit Ant's and Buck's memory usage to avoid the OOM killer.
   - export ANT_OPTS='-Xmx500m'
   - export BUCK_EXTRA_JAVA_ARGS='-Xmx500m'
+  - export TERM=dumb
 
 install:
   - git clone https://github.com/facebook/buck .buck
