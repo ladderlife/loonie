@@ -13,7 +13,7 @@ before_install:
 
 install:
   - git clone https://github.com/facebook/buck .buck-install || true
-  - export PATH=$PATH:$TRAVIS_BUILD_DIR/.buck-install/buck/bin
+  - export PATH=$PATH:$TRAVIS_BUILD_DIR/.buck-install/bin
 
 cache:
   directories:
