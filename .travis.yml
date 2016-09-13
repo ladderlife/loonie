@@ -12,12 +12,12 @@ before_install:
   - export TERM=dumb
 
 install:
-  - git clone https://github.com/facebook/buck .buck
-  - export PATH=$PATH:$TRAVIS_BUILD_DIR/.buck/buck/bin
+  - git clone https://github.com/facebook/buck .buck-install || true
+  - export PATH=$PATH:$TRAVIS_BUILD_DIR/.buck-install/buck/bin
 
 cache:
   directories:
-    .buck
+    .buck-install
     buck-out
 
 script:
