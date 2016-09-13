@@ -28,7 +28,7 @@ real_prebuilt_jar = prebuilt_jar
 def prebuilt_jar(name, deps=[], visibility=[], *args, **kwargs):
     deps = list(deps)
 
-    extract_cmd = 'mkdir -p $OUT && python -m zipfile -e $(location :' + name + ') $OUT'
+    extract_cmd = 'mkdir -p $OUT && $(exe //tools:unzip) $(location :' + name + ') $OUT'
     extract_cmd += ' && (rm $OUT/META-INF/*.SF $OUT/META-INF/*.RSA 2>/dev/null || true)'
 
     target = '//' + get_base_path() + ':' + name
