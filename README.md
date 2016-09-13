@@ -73,7 +73,7 @@ You need to tell buck that this is a namespace. (TODO: this should likely be don
 #### Autodeps doesn't see my namespace! ####
 Make sure your namespace is under `examples` or you changed how the autodeps command is being run to discover your sources.
 
-If you did that, and it still doesn't see it, that's weird. [File an issue](issues/new).
+If you did that, and it still doesn't see it, that's weird. [File an issue](https://github.com/ladderlife/loonie/issues/new).
 
 #### Autodeps doesn't see my new test! ####
 The criteria for being a test is a `:require` of `cljs.test` or `clojure.test`. Feel free to submit a PR for your test framework of choice!
@@ -103,4 +103,4 @@ Yes! If you're using autodeps, you're using `clojure_library` rules under the co
 You are unfortunately correct. We don't use the buck build during development internally and have a small hack to start a nREPL with the classpath set correctly.
 
 #### I can't find my answer in this list ####
-[File an issue](issues/new).
+[File an issue](https://github.com/ladderlife/loonie/issues/new).
