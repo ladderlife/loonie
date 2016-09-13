@@ -1,0 +1,27 @@
+language: java
+jdk:
+  - oraclejdk8
+
+# Enable container-based architecture.
+sudo: false
+
+before_install:
+  # Limit Ant's and Buck's memory usage to avoid the OOM killer.
+  - export ANT_OPTS='-Xmx500m'
+  - export BUCK_EXTRA_JAVA_ARGS='-Xmx500m'
+
+install:
+  - cd ..
+  - mkdir -p build
+  - cd build
+  - git clone https://github.com/facebook/buck
+  - cd buck
+  - export PATH=$PATH:$TRAVIS_BUILD_DIR/../build/buck/bin
+  - cd $TRAVIS_BUILD_DIR
+
+cache:
+  directories:
+    buck-out
+
+script:
+  - buck test --exclude manual

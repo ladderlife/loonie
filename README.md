@@ -1,4 +1,4 @@
-## Loonie
+## Loonie [![Build Status](https://travis-ci.org/ladderlife/loonie.svg?branch=master)](https://travis-ci.org/ladderlife/loonie)
 
 
 Loonie is Ladder's Clojure and Clojurescript build system. It uses buck to cache intermediate output so you don't have to recompile every file on every change.
