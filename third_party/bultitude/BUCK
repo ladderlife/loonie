@@ -1,0 +1,13 @@
+prebuilt_jar(
+  name = 'bultitude',
+  maven_coords = 'bultitude:bultitude:jar:0.2.8',
+  binary_jar = 'bultitude-0.2.8.jar',
+  deps = [
+    '//third_party/clojure:clojure',
+    '//third_party/tcrawley:dynapath'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+

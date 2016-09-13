@@ -1,0 +1,9 @@
+prebuilt_jar(
+  name = 'dynapath',
+  maven_coords = 'org.tcrawley:dynapath:jar:0.2.3',
+  binary_jar = 'dynapath-0.2.3.jar',
+  visibility = [
+    '//third_party/bultitude:bultitude'
+  ],
+)
+
