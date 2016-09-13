@@ -16,16 +16,16 @@ before_install:
   - export BUCK_EXTRA_JAVA_ARGS='-Xmx500m'
 
 install:
-  - cd ..
-  - mkdir -p build
-  - cd build
+  - mkdir -p .buck
+  - cd .buck
   - git clone https://github.com/facebook/buck
   - cd buck
-  - export PATH=$PATH:$TRAVIS_BUILD_DIR/../build/buck/bin
+  - export PATH=$PATH:$TRAVIS_BUILD_DIR/.buck/buck/bin
   - cd $TRAVIS_BUILD_DIR
 
 cache:
   directories:
+    .buck
     buck-out
 
 script:

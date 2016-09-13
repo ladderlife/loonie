@@ -2,7 +2,7 @@
     allow_symlinks = forbid
     build_file_search_method = watchman
     parallel_parsing = true
-    ignore = .git, target, buck-out
+    ignore = .git, .buck, buck-out
     temp_files = ^#.*#$, .*~$, .*\.swp$
 
 [buildfile]
