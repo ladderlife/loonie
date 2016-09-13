@@ -8,7 +8,7 @@ sudo: false
 before_install:
   # Limit Ant's and Buck's memory usage to avoid the OOM killer.
   - export ANT_OPTS='-Xmx500m'
-  - export BUCK_EXTRA_JAVA_ARGS='-Xmx500m'
+  - export BUCK_EXTRA_JAVA_ARGS='-Xmx300m'
   - export TERM=dumb
 
 install:
@@ -23,4 +23,4 @@ cache:
 script:
   - python --version
   - java -version
-  - buck test --exclude manual
+  - buck test --exclude manual -j 3
