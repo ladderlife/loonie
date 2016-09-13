@@ -5,13 +5,6 @@ jdk:
 # Enable container-based architecture.
 sudo: false
 
-addons:
-  apt:
-    sources:
-      - deadsnakes
-    packages:
-      - python
-
 before_install:
   # Limit Ant's and Buck's memory usage to avoid the OOM killer.
   - export ANT_OPTS='-Xmx500m'

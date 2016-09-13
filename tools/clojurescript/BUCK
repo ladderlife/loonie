@@ -22,7 +22,7 @@ if sys.platform.lower().startswith('linux'):
     extract_cmd = 'tar -jxvf archive'
 else:
     phantom_url = 'https://bitbucket.org/ariya/phantomjs/downloads/phantomjs-2.1.1-macosx.zip'
-    extract_cmd = 'python -m zipfile -e archive $TMP'
+    extract_cmd = '$(exe //tools:unzip) archive $TMP'
 
 genrule(
     name='phantomjs',
