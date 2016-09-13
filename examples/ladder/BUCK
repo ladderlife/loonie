@@ -9,7 +9,7 @@ java_binary(
 
 cljs_binary(
   name='main-cljs-bin',
-  src=':web_main_cljs',
+  src=':web-main_cljs',
   main='ladder.web-main',
   resource_path='resources/static/js',
 )

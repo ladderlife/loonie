@@ -6,6 +6,6 @@
 (defn -main
   [& [file]]
   (stringify-to-json
-   (if file
+   (if (nil? file)
      (read)
      (read-string (slurp file)))))

@@ -45,6 +45,8 @@ def prebuilt_jar(name, deps=[], visibility=[], *args, **kwargs):
         # yui's version of rhino.
         extract_cmd += ' && rm $OUT/cljs/repl/rhino.clj'
         deps.remove('//third_party/mozilla:rhino')
+        # Hack #3: there's a dependency cycle between clojurescript & clojure.test.check.
+        extract_cmd += ' && rm $OUT/cljs/spec/test.cljs'
 
     genrule(
         name=name + '_clj_extract',

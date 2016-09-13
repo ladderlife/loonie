@@ -5,4 +5,4 @@
       :cljs [cljs.test :refer-macros [deftest testing is]])))
 
 (deftest stringify-test
-  (is (= "{\"foo\": \"bar\"}" (stringify-to-json {:foo :bar}))))
+  (is (= "{\"foo\":\"bar\"}" (stringify-to-json {:foo :bar}))))

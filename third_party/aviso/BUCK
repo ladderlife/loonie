@@ -3,7 +3,8 @@ prebuilt_jar(
   maven_coords = 'io.aviso:pretty:jar:0.1.24',
   binary_jar = 'pretty-0.1.24.jar',
   deps = [
-    '//third_party/clojure:clojure'
+    '//third_party/clojure:clojure',
+    '//third_party/clojure:tools.logging'
   ],
   visibility = [
     '//third_party/eftest:eftest'

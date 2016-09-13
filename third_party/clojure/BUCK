@@ -93,6 +93,19 @@ prebuilt_jar(
 )
 
 prebuilt_jar(
+  name = 'tools.logging',
+  maven_coords = 'org.clojure:tools.logging:jar:0.3.1',
+  binary_jar = 'tools.logging-0.3.1.jar',
+  source_jar = 'tools.logging-0.3.1-sources.jar',
+  deps = [
+    ':clojure'
+  ],
+  visibility = [
+    'PUBLIC'
+  ],
+)
+
+prebuilt_jar(
   name = 'tools.namespace',
   maven_coords = 'org.clojure:tools.namespace:jar:0.3.0-alpha3',
   binary_jar = 'tools.namespace-0.3.0-alpha3.jar',
@@ -115,6 +128,9 @@ prebuilt_jar(
   deps = [
     ':clojure',
     ':clojurescript'
+  ],
+  visibility = [
+    'PUBLIC'
   ],
 )
 

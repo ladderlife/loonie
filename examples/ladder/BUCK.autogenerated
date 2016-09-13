@@ -1,0 +1,95 @@
+{
+  "common-lib" : {
+    "$type" : "clojure_library",
+    "srcs" : {
+      "ladder/common_lib.cljc" : "common_lib.cljc"
+    },
+    "deps" : [
+      "//third_party/cheshire:cheshire"
+    ],
+    "visibility" : [
+      "PUBLIC"
+    ]
+  },
+  "common-lib_cljs" : {
+    "$type" : "cljs_library",
+    "srcs" : {
+      "ladder/common_lib.cljc" : "common_lib.cljc"
+    },
+    "deps" : [ ],
+    "compile_deps" : [
+      ":common-lib"
+    ],
+    "visibility" : [
+      "PUBLIC"
+    ]
+  },
+  "common-lib-test" : {
+    "$type" : "clojure_library",
+    "srcs" : {
+      "ladder/common_lib_test.cljc" : "common_lib_test.cljc"
+    },
+    "deps" : [
+      ":common-lib",
+      "//third_party/clojure:clojure"
+    ],
+    "visibility" : [
+      "PUBLIC"
+    ]
+  },
+  "common-lib-test_cljs" : {
+    "$type" : "cljs_library",
+    "srcs" : {
+      "ladder/common_lib_test.cljc" : "common_lib_test.cljc"
+    },
+    "deps" : [
+      ":common-lib_cljs",
+      "//third_party/clojure:clojurescript"
+    ],
+    "compile_deps" : [
+      ":common-lib-test",
+      "//third_party/clojure:clojurescript"
+    ],
+    "visibility" : [
+      "PUBLIC"
+    ]
+  },
+  "test_run" : {
+    "$type" : "clojure_test",
+    "libraries" : [
+      ":common-lib-test"
+    ]
+  },
+  "common-lib-test_cljs_run" : {
+    "$type" : "cljs_test",
+    "library" : ":common-lib-test_cljs",
+    "namespaces" : [
+      "ladder.common-lib-test"
+    ]
+  },
+  "main" : {
+    "$type" : "clojure_library",
+    "srcs" : {
+      "ladder/main.clj" : "main.clj"
+    },
+    "deps" : [
+      ":common-lib"
+    ],
+    "visibility" : [
+      "PUBLIC"
+    ]
+  },
+  "web-main_cljs" : {
+    "$type" : "cljs_library",
+    "srcs" : {
+      "ladder/web_main.cljs" : "web_main.cljs"
+    },
+    "deps" : [
+      ":common-lib_cljs"
+    ],
+    "compile_deps" : [ ],
+    "visibility" : [
+      "PUBLIC"
+    ]
+  }
+}

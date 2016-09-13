@@ -11,6 +11,9 @@ pom.xml.asc
 *.swp
 *.swo
 
+# Emacs
+*~
+
 # Environment files
 .env
 
