@@ -1,0 +1,5 @@
+python_binary(
+    name='unzip',
+    main='unzip.py',
+    visibility=['PUBLIC'],
+)
