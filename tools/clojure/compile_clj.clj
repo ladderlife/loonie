@@ -44,4 +44,13 @@
     (binding [*compiler-options* {:direct-linking true}
               *compile-path* target
               *compile-files* true]
-      (compile ns))))
+      (compile ns)))
+  (doseq [ns all-nses]
+    ;; assert class file was created
+    (let [init-path (as-> ns $
+                          (name $)
+                          (.replaceAll $ "\\." "/")
+                          (.replaceAll $ "-", "_")
+                          (format "%s/%s__init.class" target $))]
+      (assert (.exists (clojure.java.io/as-file init-path))
+              "failed to create class file"))))

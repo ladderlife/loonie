@@ -356,6 +356,7 @@
                   ana/*cljs-static-fns*)
               *assert* (not= (:elide-asserts full-options) true)
               ana/*load-tests* (not= (:load-tests full-options) false)
+              ana/*macro-infer* false
               ana/*cljs-warnings*
               (let [warnings (full-options :warnings true)]
                 (merge

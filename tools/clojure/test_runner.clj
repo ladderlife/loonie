@@ -64,6 +64,16 @@
   (p/report m)
   m)
 
+(defmulti report-without-out-capture :type)
+
+(defmethod report-without-out-capture :default [m]
+  (p/report m))
+
+;; Fix for not returning the actual results.
+(defmethod report-without-out-capture :summary [m]
+  (p/report m)
+  m)
+
 (defn -main
   [& args]
   (let [nses (if args
@@ -73,10 +83,10 @@
                (b/namespaces-on-classpath))
         _ (run! require nses)
         using-out-capture (nil? (System/getenv "CLOJURE_NO_OUT_CAPTURE"))
-        options {:multithread? (not using-out-capture)
+        options {:multithread? false
                  :report (if using-out-capture
                            report-with-out-capture
-                           p/report)}
+                           report-without-out-capture)}
         results (atom nil)
         test-output (with-out-str
                       (binding [*err* *out*]
