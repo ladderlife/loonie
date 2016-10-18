@@ -98,7 +98,6 @@
           :cljs-deps (when cljs-ns (parse/deps-from-ns-decl cljs-ns))
           :cljs-clj-deps (when cljs-ns
                            (cond-> (clj-deps-from-cljs-form cljs-ns)
-                             ;; Slight hack: cljc files compiled under cljs always depend on the clojure namespace of themselves
                              (string/ends-with? (.getName file) ".cljc")
                              (conj ns-name)))
           :file-clj (when-not (string/ends-with? (.getName file) ".cljs") file)

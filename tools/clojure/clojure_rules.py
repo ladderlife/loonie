@@ -123,7 +123,8 @@ def clojure_test(name, srcs={}, libraries=[], deps=[], resources=[], **kwargs):
     java_library(
         name=name + '_bin',
         deps=[x + '_clj' for x in libraries] +
-              ['//tools/clojure:test-runner']
+              ['//tools/clojure:test-runner'],
+        resources=resources,
     )
 
     sh_test(
